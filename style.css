@@ -1,0 +1,127 @@
+
+.container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.letter{
+    width: fit-content;
+    margin: 10vh auto 0;
+    height: 409px;
+    position: relative;
+}
+.closed_letter{
+    position: absolute;
+    top: calc(50% - 110px);
+    left: calc(50% - 276px);
+}
+.open_letter{
+    position: relative;
+    top: calc(50% - 300px);
+    left: calc(50% - 276.5px);
+    visibility: hidden;
+    z-index: 100;
+}
+.letter:hover .closed_letter{
+    visibility: hidden;
+}
+.letter:hover .open_letter{
+    visibility: visible;
+}
+.hearts-left{
+    position: absolute;
+    top: -5%;
+    right: 40%;
+    z-index: 1;
+    visibility: hidden;
+}
+.hearts-right{
+    position: absolute;
+    top: -5%;
+    right: 10%;
+    z-index: 1;
+    visibility: hidden;
+    transform: scaleX(-1);
+}
+.letter:hover .hearts-left{
+    visibility: visible;
+    animation: hearts__left 3s linear 0.2s infinite;
+}
+.letter:hover .hearts-left:nth-child(2){
+    animation-delay: 0.4s;
+}
+.letter:hover .hearts-left:nth-child(3){
+    animation-delay: 0.8s;
+}
+.letter:hover .hearts-left:nth-child(4){
+    animation-delay: 1.03s;
+    animation-timing-function: ease-in;
+}
+.letter:hover .hearts-left:last-child{
+    animation-delay: 1.6s;
+}
+.letter:hover .hearts-right{
+    visibility: visible;
+    animation: hearts__right 3s linear 0.5s infinite;
+}
+.letter:hover .hearts-right:nth-child(2){
+    animation-delay: 1.33s;
+}
+.letter:hover .hearts-right:last-child{
+    animation-delay: 1.9s;
+}
+
+
+@keyframes hearts__left{
+    0%{
+        top: -5%;
+        right: 40%;
+    }
+    100%{
+        top: calc(-768px - 5%);
+        right: 40%;
+    }
+}
+
+@keyframes hearts__right{
+    0%{
+        top: -5%;
+        right: 10%;
+    }
+    100%{
+        top: calc(-768px - 5%);
+        right: 10%;
+    }
+}
+
+h1{
+    font-family: "Pacifico", cursive;
+}
+.letter_text{
+    position: absolute;
+    top: 7%;
+    left: 17%;
+    height: 200px;
+    z-index: 1000;
+    margin: 0 auto;
+    padding: 0px 20px 20px 25px;
+    font-family: "Pacifico", cursive;
+    font-size: 28px;
+    transform: rotate(-13deg);
+    text-align: center;
+    visibility: hidden;
+    margin-left: -10px;
+}
+.letter_span{
+    display: inline-block;
+    width: 400px;
+    text-align: left;
+    margin-left: -15px;
+}
+.letter:hover .letter_text{
+    visibility: visible;
+}
